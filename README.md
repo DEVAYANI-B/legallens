@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+🚀 LegalLens – AI-Powered Legal Document Simplifier
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LegalLens is an AI-driven platform designed to help rural citizens, low-literacy individuals, and first-time legal document users understand complicated legal contracts safely and confidently.
 
-## Available Scripts
+The system extracts, analyzes, summarizes, and explains legal documents in Tamil, Hindi, and English, ensuring every person can make informed decisions before signing anything important.
 
-In the project directory, you can run:
+🧠 Why LegalLens? – The Problem
 
-### `npm start`
+Legal agreements often contain complex language, hidden clauses, and legal jargon.
+For many rural families, this leads to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Signing documents without understanding consequences
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Exploitation through hidden risks
 
-### `npm test`
+Loss of land, money, or rights
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+No access to lawyers or guidance
 
-### `npm run build`
+LegalLens solves this by bringing AI-powered legal understanding to everyone.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✅ Our Solution
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+LegalLens simplifies any uploaded legal document using:
+✔ OCR text extraction (supports Tamil, Hindi, English)
+✔ AI summary in the same language as the document
+✔ Clear explanation of risks
+✔ Extraction of key legal terms
+✔ Audio summary in native language
+✔ Multimodal support (images, PDFs, DOCX, TXT)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This ensures maximum accessibility for individuals from rural and low-literacy backgrounds.
 
-### `npm run eject`
+🔧 Tech Stack
+Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Custom CSS + Minimal Tailwind
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+React-Dropzone
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Lucide-React icons
 
-## Learn More
+Web Speech API / Google TTS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+AI & Document Processing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Google Cloud API (Summaries, Risk analysis, Classification)
 
-### Code Splitting
+Tesseract.js (OCR for images)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+PDF.js (PDF text extraction)
 
-### Analyzing the Bundle Size
+Mammoth.js (DOCX extraction)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+franc (Language detection)
 
-### Making a Progressive Web App
+Build & Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Firebase Hosting
 
-### Advanced Configuration
+GitHub Actions (CI/CD optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Supported Documents:
+PDF
+DOCX
+IMAGES
+TXT
 
-### Deployment
+🛠 System Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+User uploads document
 
-### `npm run build` fails to minify
+OCR / Extraction
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Language detection using franc
+
+AI processing (OCR,Google Clous API)
+
+Summary + Key Terms + Risk Flags generated
+
+Audio generation
+
+Results shown in clean UI
+
+⭐ Key Features
+🎯 1. Multilingual Understanding
+
+AI summaries + risk warnings in Tamil, Hindi, and English.
+
+📝 2. Smart AI Legal Summarization
+
+Simplifies long legal jargon into 3–4 sentence easy-to-understand statements.
+
+⚠️ 3. Risk Identification
+
+Detects hidden clauses such as:
+
+Penalties
+
+Non-compete
+
+Liability
+
+Termination risks
+
+🔊 4. Audio Summary
+
+Reads the summary in the same language as the original document.
+
+📦 5. Completely Client-side OCR (privacy-friendly)
+
+Uses browser-based OCR—no file leaves user’s system until summary generation.
+
+📄 Sample Documents  
+We have included sample legal files to help you test the system quickly:
+
+- Tamil Agreement — `samples/tamil_contract_sample.pdf`
+- Hindi Rental File — `samples/hindi_rental_agreement.jpg`
+- English Loan Document — `samples/english_loan_document.docx`
