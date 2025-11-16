@@ -116,6 +116,6 @@ Uses browser-based OCR—no file leaves user’s system until summary generation
 📄 Sample Documents  
 We have included sample legal files to help you test the system quickly:
 
-- Tamil Agreement — `samples/tamil_contract_sample.pdf`
-- Hindi Rental File — `samples/hindi_rental_agreement.jpg`
-- English Loan Document — `samples/english_loan_document.docx`
+- Tamil Agreement — `https://drive.google.com/file/d/1UUf8Nw_O9RYg4SByEPa0A-93esUvPLR_/view?usp=sharing`
+- Hindi Documents File — `https://drive.google.com/file/d/1MC_aIwBs4PeDQ7h2nG5gJ_60-dZ5v6Hk/view?usp=drive_link`
+- English Document — `https://drive.google.com/file/d/1_jS8xOOXfKm4GXgj2INVtnES4YD4-Y5B/view?usp=drive_link`
