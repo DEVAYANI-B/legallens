@@ -120,7 +120,7 @@ Return this JSON structure with SPECIFIC information from the document:
 
       const candidate = data.candidates[0];
       
-     
+      // Check if content was blocked
       if (candidate.finishReason === 'SAFETY' || candidate.finishReason === 'RECITATION') {
         console.warn(`Content blocked: ${candidate.finishReason}`);
         continue;

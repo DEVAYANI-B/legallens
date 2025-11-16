@@ -10,49 +10,59 @@ function AISummary({ summary, language }) {
   const [error, setError] = useState('');
 
   const handleSpeak = async () => {
-    if (isSpeaking && audioPlayer) {
+
+  // If already speaking — STOP everything
+  if (isSpeaking) {
+    if (audioPlayer) {
       audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+    }
+
+    window.speechSynthesis.cancel(); // <-- IMPORTANT FIX
+
+    setIsSpeaking(false);
+    return;
+  }
+
+  // If audio already generated, play again
+  if (audioUrl && audioPlayer) {
+    audioPlayer.play();
+    setIsSpeaking(true);
+    return;
+  }
+
+  // Generate new audio using Google TTS
+  setIsLoading(true);
+  setError('');
+
+  try {
+    const url = await generateSpeech(summary, language);
+    setAudioUrl(url);
+
+    const audio = new Audio(url);
+    setAudioPlayer(audio);
+
+    audio.onplay = () => setIsSpeaking(true);
+    audio.onended = () => setIsSpeaking(false);
+
+    audio.onerror = () => {
+      setError('Audio playback failed');
       setIsSpeaking(false);
-      return;
-    }
+    };
 
-    if (audioUrl && audioPlayer) {
-      audioPlayer.play();
-      setIsSpeaking(true);
-      return;
-    }
+    audio.play();
 
-    // Generate new audio using Google TTS
-    setIsLoading(true);
-    setError('');
+  } catch (err) {
+    console.error('TTS error:', err);
+    
 
-    try {
-      const url = await generateSpeech(summary, language);
-      setAudioUrl(url);
+    // Fallback
+    playBrowserSpeech(summary, language);
 
-      const audio = new Audio(url);
-      setAudioPlayer(audio);
-
-      audio.onplay = () => setIsSpeaking(true);
-      audio.onended = () => setIsSpeaking(false);
-      audio.onerror = () => {
-        setError('Audio playback failed');
-        setIsSpeaking(false);
-      };
-
-      audio.play();
-
-    } catch (err) {
-      console.error('TTS error:', err);
-      setError('Failed to generate audio. Using browser fallback...');
-      
-      // Fallback
-      playBrowserSpeech(summary, language);
-
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   // Renamed so ESLint does not treat it like a Hook
   const playBrowserSpeech = (text, lang) => {

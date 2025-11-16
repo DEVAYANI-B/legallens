@@ -8,6 +8,8 @@ export function detectLanguage(text) {
     'eng': 'English',
     'tam': 'Tamil',
     'hin': 'Hindi',
+    'can': 'Kannada',
+    'mal': 'Malayalam'
   };
   
   return languageMap[langCode] || 'English';
@@ -17,7 +19,9 @@ export function getLanguageCode(language) {
   const codeMap = {
     'English': 'en-IN',
     'Tamil': 'ta-IN',
-    'Hindi': 'hi-IN'
+    'Hindi': 'hi-IN',
+    'Kannada':'kn-IN',
+    'Malayalam':'ml-IN'
   };
   
   return codeMap[language] || 'en-IN';
